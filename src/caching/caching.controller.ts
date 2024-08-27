@@ -9,9 +9,9 @@ export class CachingController {
 
   // #2.2 Interacting with the Cache store
   @Get()
-  caching() {
+  async caching() {
     this.cacheManger.set('key', 'value');
-    console.log(this.cacheManger.get('key'));
+    console.log(await this.cacheManger.get('key'));
   }
 
   // #2.3 Interacting with the Cache store
@@ -26,6 +26,7 @@ export class CachingController {
     this.cacheManger.del(key);
   }
 
+  // #2.5 Interacting with the Cache store
   @Get('/reset')
   resetCaching() {
     this.cacheManger.reset();

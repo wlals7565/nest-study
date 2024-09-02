@@ -15,9 +15,8 @@ import DogEntity from './entities/dog.entity';
 @Controller('serialization')
 @UseInterceptors(ClassSerializerInterceptor)
 export class SerializationController {
-  @SerializeOptions({
-    excludePrefixes: ['first'],
-  })
+  // #4 Pass options
+  //@SerializeOptions({ excludePrefixes: ['first'] })
   @Post()
   async getUserEntity(@Body() userEntity: UserEntity) {
     return new UserEntity(userEntity);
@@ -40,5 +39,4 @@ export class SerializationController {
     });
     return new DogEntity('MEONG MEONG', user);
   }
-
 }

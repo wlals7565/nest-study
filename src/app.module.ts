@@ -5,9 +5,10 @@ import { ValidationModule } from './validation/validation.module';
 import { CachingModule } from './caching/caching.module';
 import { WebsocketModule } from './websocket/websocket.module';
 import { SerializationModule } from './serialization/serialization.module';
+import { VersioningModule } from './versioning/versioning.module';
 
 @Module({
-  imports: [ValidationModule, CachingModule, WebsocketModule, SerializationModule],
+  imports: [ValidationModule, CachingModule, WebsocketModule, SerializationModule, VersioningModule],
   controllers: [AppController],
   providers: [AppService],
 })

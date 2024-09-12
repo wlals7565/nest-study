@@ -24,4 +24,34 @@ export class SchedulingService {
   deleteCronJob(name: string) {
     this.schedulerRegistry.deleteCronJob(name);
   }
+
+  // #7 Dynamic intervals
+  createInterval(name: string, milliseconds: number) {
+    const callback = () => {
+      this.logger.warn(`Interval ${name} executing at time (${milliseconds})!`);
+    };
+  
+    const interval = setInterval(callback, milliseconds);
+    this.schedulerRegistry.addInterval(name, interval);
+  }
+
+  deleteInterval(name: string) {
+    this.schedulerRegistry.deleteInterval(name);
+    this.logger.warn(`Interval ${name} deleted!`);
+  }
+
+  // #8 Dynamic timeouts
+  createTimeout(name: string, milliseconds: number) {
+    const callback = () => {
+      this.logger.warn(`Timeout ${name} executing after (${milliseconds})!`);
+    };
+  
+    const timeout = setTimeout(callback, milliseconds);
+    this.schedulerRegistry.addTimeout(name, timeout);
+  }
+
+  deleteTimeout(name: string) {
+    this.schedulerRegistry.deleteTimeout(name);
+    this.logger.warn(`Timeout ${name} deleted!`);
+  }
 }

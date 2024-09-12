@@ -11,9 +11,31 @@ export class SchedulingController {
     return { message: 'done' };
   }
 
+  @Post('interval')
+  createInterval(@Body() body) {
+    this.schedulingService.createInterval(body.name, body.milliseconds)
+  }
+
+  @Post('timeout')
+  createTimeout(@Body() body) {
+    this.schedulingService.createTimeout(body.name, body.milliseconds)
+  }
+
   @Post(':name')
   deleteCronJob(@Param('name') name: string) {
     this.schedulingService.deleteCronJob(name);
+    return { message: 'done' };
+  }
+
+  @Post('interval/:name')
+  deleteInterval(@Param('name') name: string) {
+    this.schedulingService.deleteInterval(name);
+    return { message: 'done' };
+  }
+
+  @Post('timeout/:name')
+  deleteTimeout(@Param('name') name: string) {
+    this.schedulingService.deleteTimeout(name);
     return { message: 'done' };
   }
 }

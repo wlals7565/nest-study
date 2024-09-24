@@ -1,6 +1,8 @@
 import { BullModule } from '@nestjs/bullmq';
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import BullMQController from './bullMQ.controller';
+import BullMQService from './bummMQ.service';
 
 // #1.1 BullMQ Setting
 @Module({
@@ -20,9 +22,12 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     BullModule.registerQueue({
       name: 'test'
     }),
+    // #1.3 BullMQ Setting
     BullModule.registerFlowProducer({
       name:'FlowProducerTest'
     })
   ],
+  controllers: [BullMQController],
+  providers: [BullMQService]
 })
 export default class BullMQModule {}

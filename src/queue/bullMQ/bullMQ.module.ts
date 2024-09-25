@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import BullMQController from './bullMQ.controller';
 import BullMQService from './bummMQ.service';
+import BullMQConsumer from './bullMQ.consumer';
 
 // #1.1 BullMQ Setting
 @Module({
@@ -28,6 +29,6 @@ import BullMQService from './bummMQ.service';
     })
   ],
   controllers: [BullMQController],
-  providers: [BullMQService]
+  providers: [BullMQService, BullMQConsumer]
 })
 export default class BullMQModule {}

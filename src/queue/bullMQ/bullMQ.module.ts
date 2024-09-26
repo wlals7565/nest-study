@@ -15,20 +15,23 @@ import BullMQConsumer from './bullMQ.consumer';
         connection: {
           host: configService.get('REDIS_HOST'),
           port: configService.get('REDIS_PORT'),
-          password: configService.get('REDIS_PASSWORD')
+          password: configService.get('REDIS_PASSWORD'),
         },
       }),
     }),
     // #1.2 BullMQ Setting
     BullModule.registerQueue({
-      name: 'test'
+      name: 'test',
     }),
     // #1.3 BullMQ Setting
     BullModule.registerFlowProducer({
-      name:'FlowProducerTest'
-    })
+      name: 'FlowProducerTest',
+    }),
   ],
   controllers: [BullMQController],
-  providers: [BullMQService, BullMQConsumer]
+  providers: [
+    BullMQService,
+    BullMQConsumer,
+  ],
 })
 export default class BullMQModule {}

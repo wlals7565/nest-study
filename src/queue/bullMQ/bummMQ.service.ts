@@ -5,7 +5,7 @@ import { Queue } from 'bullmq';
 // #2.1 producers
 @Injectable()
 export default class BullMQService {
-  constructor(@InjectQueue('test') private readonly testQueue: Queue) {}
+  constructor(@InjectQueue('processor') private readonly testQueue: Queue) {}
 
   // #2.2 producers
   async addJob() {

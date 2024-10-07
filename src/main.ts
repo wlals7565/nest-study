@@ -56,8 +56,19 @@ const extractor = (request: Request): string | string[] =>
 //}
 
 // # scheduling
+/*
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(3000);
+}
+*/
+
+// Logger
+// # 1 Basic customization
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule, 
+    //{logger: false}
+    //{logger: ['error', 'warn']}
+  )
 }
 bootstrap();

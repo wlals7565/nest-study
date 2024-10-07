@@ -21,7 +21,7 @@ import { join } from 'path';
         },
       }),
     }),
-    BullModule.registerQueue({ name: 'processor',processors: [join(__dirname, 'processor.js')]}),
+    //BullModule.registerQueue({ name: 'processor',processors: [join(__dirname, 'processor.js')]}),
     // #1.2 BullMQ Setting
     BullModule.registerQueue({
       name: 'test',

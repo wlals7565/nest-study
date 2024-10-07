@@ -14,14 +14,15 @@ import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    //ConfigModule.forRoot({isGlobal: true})
     //ValidationModule,
     //CachingModule,
     //WebsocketModule,
     //SerializationModule,
     //VersioningModule,
     //SchedulingModule,
-    BullMQModule,
-    ConfigModule.forRoot({isGlobal: true})
+    //BullMQModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],

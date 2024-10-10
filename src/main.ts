@@ -70,5 +70,7 @@ async function bootstrap() {
     //{logger: false}
     //{logger: ['error', 'warn']}
   )
+
+  await app.listen(3000);
 }
 bootstrap();
